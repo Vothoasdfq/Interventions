@@ -50,4 +50,11 @@ describe('', () => {
         let result= validatorFn(control as AbstractControl);
         expect(result).toBeNull;
     });
+
+    it('#14 | Une chaîne nulle est invalide', () => {
+        let control = { value: null }
+        let validatorFn =  VerifierCaracteresValidator.longueurMinimum(3);
+        let result= validatorFn(control as AbstractControl);
+        expect(result['nbreCaracteresInsuffisant']).toBe(true);
+    });
 });
