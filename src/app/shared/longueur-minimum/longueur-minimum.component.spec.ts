@@ -23,4 +23,10 @@ describe('', () => {
         expect(result).toBeNull;
     });
 
+    it('#10 | Une phrase avec 1 espace et 2 caractères est invalide', () => {
+        let control = { value: ' xx'.repeat(1) }
+        let validatorFn =  VerifierCaracteresValidator.longueurMinimum(3);
+        let result= validatorFn(control as AbstractControl);
+        expect(result['nbreCaracteresInsuffisant']).toBe(true);
+    });
 });
