@@ -43,4 +43,11 @@ describe('', () => {
         let result= validatorFn(control as AbstractControl);
         expect(result).toBeNull;
     });
+
+    it('#13 | Une phrase avec 5 espaces, 5 caractères et 5 espaces est valide', () => {
+        let control = { value: '     xxxxx     '.repeat(1) }
+        let validatorFn =  VerifierCaracteresValidator.longueurMinimum(3);
+        let result= validatorFn(control as AbstractControl);
+        expect(result).toBeNull;
+    });
 });
