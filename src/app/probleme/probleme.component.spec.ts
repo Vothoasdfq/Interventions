@@ -95,5 +95,12 @@ describe('ProblemeComponent', () => {
     let zone = component.problemeForm.get('courrielGroup.courrielConfirmation');
     expect(zone.status).toEqual('DISABLED');
   });
+
+  it('#19 | Zone TELEPHONE est désactivée quand notifier par courriel', () => {
+    component.appliquerNotifications("parCourriel");
+
+    let zone = component.problemeForm.get('telephone');
+    expect(zone.status).toEqual('DISABLED'); 
+  });
   
 });
