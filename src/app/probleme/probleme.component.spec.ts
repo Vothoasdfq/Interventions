@@ -126,7 +126,11 @@ describe('ProblemeComponent', () => {
   });
 
   it('#23 | Zone CONFIRMER COURRIEL est invalide sans valeur quand notifier par courriel', () => {
-    
+    component.appliquerNotifications("parCourriel");
+
+    let zone = component.problemeForm.get('courrielGroup.courrielConfirmation');
+    zone.setValue('');
+    expect(zone.valid).toBeFalsy();
   });
 
   it('#24 | Zone ADRESSE COURRIEL est invalide avec un format non conforme', () => {
