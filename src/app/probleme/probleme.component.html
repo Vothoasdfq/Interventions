@@ -49,6 +49,39 @@
               </span>
             </span> 
             </div>
+
+            <label for="nomId" class="col-md-2 col-form-label text-right">Nom :</label>
+            <div class="col-md-10">
+              <input class="form-control" 
+              id="nomId" 
+              type="text" 
+              placeholder="Votre nom ici (obligatoire)" 
+              formControlName="nom"            
+              [ngClass]="{'is-valid': (problemeForm.get('nom').touched || 
+              problemeForm.get('nom').dirty) &&
+              problemeForm.get('nom').valid,
+              'is-invalid': (problemeForm.get('nom').touched || 
+              problemeForm.get('nom').dirty) &&
+              !problemeForm.get('nom').valid}"
+              />
+
+              <span class="form-text" *ngIf="(problemeForm.get('nom').touched ||
+                problemeForm.get('nom').dirty) &&
+                (problemeForm.get('nom').errors)">
+          
+                <span *ngIf=" problemeForm.get('nom').errors['required']">
+                  <small class="text-muted">
+                      Merci de saisir votre nom.
+                  </small>
+                </span>
+
+                <span *ngIf=" problemeForm.get('nom').errors['nbreCaracteresExcessif']">
+                  <small class="text-muted">
+                      Veuillez entrez moins de caractères.
+                  </small>
+              </span>
+            </span> 
+            </div>
           </div>
         </form>
       
