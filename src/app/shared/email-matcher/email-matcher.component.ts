@@ -8,5 +8,6 @@ export class emailMatcherValidator {
             }
             return c['controls'].courriel.value === c['controls'].courrielConfirmation.value ? null : { match: true };
         };
-    }   
+    }
+
 }

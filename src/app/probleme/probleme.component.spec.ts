@@ -134,7 +134,11 @@ describe('ProblemeComponent', () => {
   });
 
   it('#24 | Zone ADRESSE COURRIEL est invalide avec un format non conforme', () => {
+    component.appliquerNotifications("parCourriel");
     
+    let zone = component.problemeForm.get('courrielGroup.courriel');
+    zone.setValue('abcdefgh');
+    expect(zone.valid).toBeFalsy();
   });
 
   it('#25 | Zone ADRESSE COURRIEL sans valeur et Zone CONFIRMER COURRIEL avec valeur valide retourne null', () => {

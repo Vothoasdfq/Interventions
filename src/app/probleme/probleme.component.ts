@@ -53,7 +53,7 @@ export class ProblemeComponent implements OnInit{
     
     if (typeNotification == "parCourriel"){
       courrielControl.enable();
-      courrielControl.setValidators([Validators.required]);
+      courrielControl.setValidators([Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+')]);
 
       courrielConfirmationControl.enable();
       courrielConfirmationControl.setValidators([Validators.required]);
