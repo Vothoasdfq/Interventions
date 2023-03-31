@@ -3,19 +3,8 @@ import { ProblemeComponent } from "src/app/probleme/probleme.component";
 import { emailMatcherValidator } from "./email-matcher.component";
 
 describe('', () => {
-    let component: ProblemeComponent;
-    
-    it('#20 | Zone ADRESSE COURRIEL est activée quand notifier par courriel', () => {
-        component.appliquerNotifications("parCourriel");
+ 
 
-        let zone = component.problemeForm.get('courriel');
-        expect(zone.enable).toBeTruthy();
-    });
-  
-    it('#21 | Zone CONFIRMER COURRIEL est activée quand notifier par courriel', () => {
-      
-    });
-  
     it('#22 | Zone ADRESSE COURRIEL est invalide sans valeur quand notifier par courriel', () => {
       
     });

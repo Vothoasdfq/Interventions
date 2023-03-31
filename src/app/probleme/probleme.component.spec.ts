@@ -102,5 +102,19 @@ describe('ProblemeComponent', () => {
     let zone = component.problemeForm.get('telephone');
     expect(zone.status).toEqual('DISABLED'); 
   });
+
+  it('#20 | Zone ADRESSE COURRIEL est activée quand notifier par courriel', () => {
+    component.appliquerNotifications("parCourriel");
+
+    let zone = component.problemeForm.get('courrielGroup.courriel');
+    expect(zone.enabled).toBeTruthy();
+});
+
+it('#21 | Zone CONFIRMER COURRIEL est activée quand notifier par courriel', () => {
+    component.appliquerNotifications("parCourriel");
+
+    let zone = component.problemeForm.get('courrielGroup.courrielConfirmation');
+    expect(zone.enabled).toBeTruthy();
+});
   
 });
