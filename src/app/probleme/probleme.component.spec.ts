@@ -217,5 +217,14 @@ describe('ProblemeComponent', () => {
     let zone = component.problemeForm.get('courrielGroup.courrielConfirmation');
     expect(zone.disabled).toBeTruthy();
   });
+
+  it('#32 | Zone TELEPHONE est invalide sans valeur quand notifier par messagerie texte', () => {
+    component.appliquerNotifications("parTelephone");
+    
+    let zone = component.problemeForm.get('telephone');
+    zone.setValue('');
+
+    expect(zone.invalid).toBeTruthy();
+  });
   
 });
