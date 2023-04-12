@@ -100,7 +100,7 @@ describe('ProblemeComponent', () => {
     component.appliquerNotifications("parCourriel");
 
     let zone = component.problemeForm.get('telephone');
-    expect(zone.status).toEqual('DISABLED'); 
+    expect(zone.disabled).toBeTruthy();
   });
 
   it('#20 | Zone ADRESSE COURRIEL est activée quand notifier par courriel', () => {
