@@ -141,12 +141,34 @@ describe('ProblemeComponent', () => {
     expect(zone.valid).toBeFalsy();
   });
 
-  it('#25 | Zone ADRESSE COURRIEL sans valeur et Zone CONFIRMER COURRIEL avec valeur valide retourne null', () => {
+  it('#25 | Zone ADRESSE COURRIEL sans valeur et Zone CONFIRMER COURRIEL avec valeur valide retourne INVALID', () => {
+    component.appliquerNotifications("parCourriel");
     
+    let zoneCourriel = component.problemeForm.get('courrielGroup.courriel');
+    let zoneConfirmation = component.problemeForm.get('courrielGroup.courrielConfirmation')
+
+    zoneCourriel.setValue('');
+    zoneConfirmation.setValue('abcdef@test.com')
+
+    let groupe = component.problemeForm.get('courrielGroup');
+ 
+    expect(groupe.invalid).toBeTruthy();
   });
 
-  it('#26 | Zone ADRESSE COURRIEL avec valeur valide et Zone CONFIRMER COURRIEL sans valeur retourne null', () => {
+  it('#26 | Zone ADRESSE COURRIEL avec valeur valide et Zone CONFIRMER COURRIEL sans valeur retourne INVALID', () => {
+    component.appliquerNotifications("parCourriel");
     
+    let zoneCourriel = component.problemeForm.get('courrielGroup.courriel');
+    let zoneConfirmation = component.problemeForm.get('courrielGroup.courrielConfirmation')
+
+    zoneCourriel.setValue('abcdef@test.com');
+    zoneConfirmation.setValue('')
+
+    let groupe = component.problemeForm.get('courrielGroup');
+ 
+    expect(groupe.invalid).toBeTruthy();
+
+
   });
 
   it('#27 | Zones ADRESSE COURRIEL et CONFIRMER COURRIEL sont invalides si les valeurs sont différentes quand notifier par courriel', () => {
