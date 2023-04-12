@@ -196,5 +196,12 @@ describe('ProblemeComponent', () => {
  
     expect(groupe.valid).toBeTruthy();
   });
+
+  it('#29 | Zone TELEPHONE est activée quand notifier par messagerie texte', () => {
+    component.appliquerNotifications("parTelephone");
+    
+    let zone = component.problemeForm.get('telephone');
+    expect(zone.enabled).toBeTruthy();
+  });
   
 });
