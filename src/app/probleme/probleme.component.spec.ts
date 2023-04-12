@@ -210,5 +210,12 @@ describe('ProblemeComponent', () => {
     let zone = component.problemeForm.get('courrielGroup.courriel');
     expect(zone.disabled).toBeTruthy();
   });
+
+  it('#31 | Zone CONFIRMER COURRIEL est désactivée quand notifier par messagerie texte', () => {
+    component.appliquerNotifications("parTelephone");
+    
+    let zone = component.problemeForm.get('courrielGroup.courrielConfirmation');
+    expect(zone.disabled).toBeTruthy();
+  });
   
 });
