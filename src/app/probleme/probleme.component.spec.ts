@@ -203,5 +203,12 @@ describe('ProblemeComponent', () => {
     let zone = component.problemeForm.get('telephone');
     expect(zone.enabled).toBeTruthy();
   });
+
+  it('#30 | Zone ADRESSE COURRIEL est désactivée quand notifier par messagerie texte', () => {
+    component.appliquerNotifications("parTelephone");
+    
+    let zone = component.problemeForm.get('courrielGroup.courriel');
+    expect(zone.disabled).toBeTruthy();
+  });
   
 });
