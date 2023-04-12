@@ -226,5 +226,14 @@ describe('ProblemeComponent', () => {
 
     expect(zone.invalid).toBeTruthy();
   });
+
+  it('#33 | Zone TELEPHONE est invalide avec des caractères non-numériques quand notifier par messagerie texte', () => {
+    component.appliquerNotifications("parTelephone");
+    
+    let zone = component.problemeForm.get('telephone');
+    zone.setValue('abcde-ghrd');
+
+    expect(zone.invalid).toBeTruthy();
+  });
   
 });
