@@ -235,5 +235,14 @@ describe('ProblemeComponent', () => {
 
     expect(zone.invalid).toBeTruthy();
   });
+
+  it('#34 | Zone TELEPHONE est invalide avec 9 chiffres consécutifs quand notifier par messagerie texte', () => {
+    component.appliquerNotifications("parTelephone");
+    
+    let zone = component.problemeForm.get('telephone');
+    zone.setValue('123456789');
+
+    expect(zone.invalid).toBeTruthy();
+  });
   
 });
