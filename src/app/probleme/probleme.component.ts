@@ -26,14 +26,17 @@ export class ProblemeComponent implements OnInit{
         courriel: [{value: '', disabled: true}],
         courrielConfirmation: [{value: '', disabled: true}],
       }),
-      telephone: [{value: '', disabled: true}]
+      telephone: [{value: '', disabled: true}],
+      notification: ['pasNotification']
     });
 
     this.typeproblemeService.obtenirTypesProbleme()
     .subscribe(typesProbleme => this.typesProbleme = typesProbleme,
-               error => this.errorMessage = <any>error);  
+               error => this.errorMessage = <any>error);
 
-  }
+    this.problemeForm.get('notification').valueChanges
+    .subscribe(value => this.appliquerNotifications(value));
+    }
 
   appliquerNotifications(typeNotification: string): void {
     const courrielControl = this.problemeForm.get('courrielGroup.courriel');
@@ -75,5 +78,4 @@ export class ProblemeComponent implements OnInit{
 
   save(): void {
   }
-  // Travail 14 complété
 }
